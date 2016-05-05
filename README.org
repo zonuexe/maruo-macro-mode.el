@@ -1,0 +1,7 @@
+* maruo-macro-mode.el
+Major mode for editing [[http://hide.maruo.co.jp/software/hidemaru.html][Hidemaru/Maruo editor]] (秀丸エディタ) macro script.
+
+** Hidemaru macro references
+- [[http://hidemaruo.mydns.jp:81/helpsite/][Hidemaru Help pages]]
+  - [[http://hidemaruo.mydns.jp:81/helpsite/hidemac/index.html][Macro manual]]
+  - [[http://hidemaruo.mydns.jp:81/helpsite/be_hidemac/index.html][Macro help for beginner]]
