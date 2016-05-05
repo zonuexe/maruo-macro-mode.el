@@ -1,5 +1,9 @@
-* maruo-macro-mode.el
-Major mode for editing [[http://hide.maruo.co.jp/software/hidemaru.html][Hidemaru/Maruo editor]] (秀丸エディタ) macro script.
+* [秀] maruo-macro-mode.el
+Emacs major mode for editing [[http://hide.maruo.co.jp/software/hidemaru.html][Hidemaru/Maruo editor]] (秀丸エディタ) macro script.
+
+** What is Hidemaru/Maruo Editor?
+
+Hidemaru (秀丸エディタ) is a text editor that was popular in Japan.  The English version is called *Maruo Editor*.
 
 ** Hidemaru macro references
 - [[http://hidemaruo.mydns.jp:81/helpsite/][Hidemaru Help pages]]
