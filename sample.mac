@@ -1,3 +1,13 @@
+// -*- mode: Maruo-macro; coding: utf-8 -*-
+
+// Copyright (C) 2016 USAMI Kenta
+//
+// Copying and distribution of this file, with or without modification,
+// are permitted in any medium without royalty provided the copyright
+// notice and this notice are preserved.  This file is offered as-is,
+// without any warranty.
+
+// Comment
 // aaa a // aaaa
 
 #value = 8 % 3;
@@ -6,13 +16,17 @@ $str = "これは \"文字列 \"です";
 $$a = "aaa";
 ##b = "bbb";
 
-if ($a) {
+if ($$a) {
 	// 条件式が0以外（真）の場合この部分の記述（処理）を実行する
-	result;
+	message result;
+	message unichar( 0x3042 );
+	message ;
+	message str('a');
 } else {
 	//条件式が0（偽）の場合この部分の記述（処理）を実行する
 }
 
 hoge:
-
-return;
+    message ##1;
+	message $$2;
+	return;
