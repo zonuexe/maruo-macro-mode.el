@@ -27,14 +27,7 @@
 
 
 ;;; Code:
-(require 'cc-mode)
 (require 'imenu)
-(eval-when-compile
-  (require 'cc-langs)
-  (require 'cc-fonts))
-
-(eval-and-compile
-  (c-add-language 'maruo-macro-mode 'java-mode))
 
 (defgroup maruo-macro nil
   "Hidemaru/Maruo editor macro script."
@@ -45,9 +38,6 @@
 
 (defcustom maruo-macro-mode-offset 4
   "Indentation of Maruo macro statement.")
-
-(c-lang-defconst c-primitive-type-kwds
-  maruo-macro '())
 
 (defconst maruo-macro--re-keywords
   (regexp-opt
@@ -90,10 +80,6 @@
 ;;    (list nil maruo-macro--re-subroutine-name 1)
 ;;    (list "Variables" maruo-macro--re-variable-name 0)))
 
-(c-lang-defconst c-class-decl-kwds
-  ""
-  maruo-macro '())
-
 (defun maruo-macro--index-re (regexp)
   "Return list of keywords that searched by REGEXP."
   (let (index)
@@ -115,10 +101,8 @@
 ;;;###autoload
 (define-derived-mode maruo-macro-mode prog-mode "[秀]macro"
   "Major mode for editing Maruo macro."
-  (c-initialize-cc-mode t)
   (set-syntax-table maruo-macro-mode-syntax-table)
-  (c-init-language-vars maruo-macro-mode)
-  (c-common-init 'maruo-macro-mode)
+
   ;;(setq imenu-generic-expression maruo-macro-imenu-generic-expression)
   (setq imenu-create-index-function 'maruo-macro-imenu-create-index)
   (setq-local indent-tabs-mode nil)
@@ -127,12 +111,9 @@
   (setq font-lock-defaults '(maruo-macro-mode-keywords))
 
   (setq tab-width maruo-macro-mode-offset)
-  (setq c-basic-offset maruo-macro-mode-offset)
   (setq indent-tabs-mode maruo-macro-mode-use-tab)
 
-  ;;(setq-local indent-line-function 'indent-to-left-margin)
-
-  (c-run-mode-hooks 'c-mode-common-hook 'maruo-macro-mode-hook))
+  (setq-local indent-line-function 'indent-to-left-margin))
 
 ;;;###autoload
 (defalias 'hidemaru-macro-mode 'maruo-macro-mode)
