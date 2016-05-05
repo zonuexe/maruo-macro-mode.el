@@ -40,9 +40,12 @@
   "Indentation of Maruo macro statement.")
 
 (defconst maruo-macro--re-keywords
-  (regexp-opt
-   '("if" "else" "return" "endmacro" "message" "while" "call"
-     "result" "yes" "no" "true" "false" "eof" "version" "platform"))
+  (eval-when-compile
+    (regexp-opt
+     '("if" "else" "call" "return" "while" "break" "continue"
+       "goto" "endmacro" "endmacroall" "quit" "quitall"
+       "exit" "exitall" "saveexit" "saveexitall"
+       "result" "yes" "no" "true" "false" "eof" "version" "platform")))
   "Rexexp matching Maruo macro language keyword.")
 
 (defconst maruo-macro--re-variable-name
@@ -72,7 +75,11 @@
     (modify-syntax-entry ?+  "." table)
     (modify-syntax-entry ?-  "." table)
     (modify-syntax-entry ?*  "." table)
+    (modify-syntax-entry ?%  "." table)
+    (modify-syntax-entry ?#  "." table)
+    (modify-syntax-entry ?$  "." table)
     (modify-syntax-entry ?\n ">" table)
+    (modify-syntax-entry ?\t " " table)
     table))
 
 ;; (defvar maruo-macro-imenu-generic-expression
