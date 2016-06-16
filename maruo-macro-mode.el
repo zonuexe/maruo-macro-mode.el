@@ -5,6 +5,7 @@
 ;; Author: USAMI Kenta <tadsan@zonu.me>
 ;; Created: 4 May 2016
 ;; Keywords: programming editor macro
+;; Package-Requires: ((emacs "24.3"))
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -189,8 +190,11 @@
 
   (setq-local indent-line-function 'indent-to-left-margin))
 
-;;;###autoload (defalias 'hidemaru-macro-mode 'maruo-macro-mode)
-;;;###autoload (add-to-list 'auto-mode-alist '("\\.mac\\'" . maruo-macro-mode))
+;;;###autoload
+(defalias 'hidemaru-macro-mode 'maruo-macro-mode)
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.mac\\'" . maruo-macro-mode))
 
 (provide 'maruo-macro-mode)
 ;;; maruo-macro-mode.el ends here
